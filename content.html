@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <title>:: Content ::</title>
+        <meta charset="UTF-8">
+    </head>
+     
+    <body bgcolor="#2f353b">
+
+        <H1>
+            <div align="Center" style="background-color: #252a2f">
+                <font color="EEEEEE">CONTENT</font> <BR>
+                <font size="2" color="#ff712d">--- Sudtay Onnuam ---</font>
+                <hr>
+            </div>
+        </H1>
+
+        <div align="Center" style="background-color: #ffb400">
+            <div align="Right">
+                    || <a href="Index.html" style="text-decoration:none"><font color="#666666"><B>Home</B></font></a>   
+                    || <a href="about.html" style="text-decoration:none"><font color="#666666"><B>About</B></font></a>
+                    || <a href="content.html" style="text-decoration:none"><font color="#666666"><B>Content</B></font></a>
+                    || <a href="http://www.cmmakerclub.com/" TARGET="_blank" style="text-decoration:none"><font color="#666666"><B>Link</B></font></a> ||
+            </div>
+        </div>
+        <BR>
+
+
+        <H1 align="Center">
+             <font color="EEEEEE" >การใช้งาน MQTT บน native ESP8266 + Arduino IDE และทดสอบเชื่อมกับ cloudmqtt</font> <BR>
+        </H1>
+
+        <font color="EEEEEE" >
+            <p>
+                
+                    <dd>ตัวบอร์ด ESP 8266 ถือว่าเป็นบอร์ดที่ได้รับความนิยมอย่างแพร่หลาย เพราะเนื่องด้วยมีราคาถูก และความสามารถที่มันทำได้ และในครั้งนี้ เราจะลองนำตัว ESP8266 มาเชื่อกับ cloudmqtt ดูนะครับ และผมยังทำตัวอย่างที่ใช้ ESP8266 มาเก็บค่าอุณภูมิ และความชื้นจาก sensor DHT22 แล้วยิงขึ้นไปที่ Thingspeak เพื่อ เก็บ Log เอาไว้ดูผ่านเว็บได้ด้วย 
+                    <a href="#1" ><font color="#ffb400"><B>ตัวอย่าง</B></font></a>  
+                
+            </p>
+            - ขั้นแรก เราไปดูที่ Code ที่เราจะเขียนลงใน ESP 8266 นะครับ
+            <BR>
+            <script src="https://gist.github.com/githubnap/8252457c01d6628a827b.js"></script>
+            <BR>
+
+            <ul>
+                <li>บรรทัดที่ 11 ssid คือชื่อของ Wifi ที่เราจะต่อ (ตัวใหญ่-ตัวเล็ก-ช่องว่างพิมพ์ให้ถูกนะ)</li>
+                <li> บรรทัดที่ 12 pass ก็คือ รหัสของ Wifi ตัวที่เราต้องการจะต่อ</li>
+                <li>บรรทัดที่ 15 IPAddress ก็ให้เราใส่ IP ของ server ของ MQTT ที่เราต้องการจะต่อเข้าไป (Port default คือ 1883)</li>
+                <li>บรรทัดที่ 23 ตรงนี้ถ้าใครต้องการเปลี่ยน Port ไปเป็น Port อื่นให้เปลี่ยนที่บรรทัดนี้ คือให้เติม Port ไปหลัง server ได้เลย เช่น<BR><BR>
+
+                    PubSubClient client(server ,12345);</li><BR>
+
+                <li>บรรทัดที่ 48 เป็นเหมือน chanel ที่ส่งข้อมูล</li>
+               <li> บรรทัดที่ 49 คือ Topic ที่เราต้องการจะ Subscribe</li>
+            </ul>
+        </font> 
+
+
+
+
+
+        <div align="Center">
+            <font size="2" color="#999999">ตัวอย่างการทำ Log อุณภูมิบน Internet</font>
+            <a name="1" >
+                <table bgcolor="#252a2f" border="1" >
+                    <tr>
+                        <td>
+                            <div align="Center">
+                                 <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="http://api.thingspeak.com/channels/41262/charts/1?width=450&amp;height=260&amp;results=3600&amp;dynamic=true"></iframe>   
+                            </div> 
+                        </td>
+
+                        <td>
+                            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="http://api.thingspeak.com/channels/41262/charts/2?width=450&amp;height=260&amp;results=3600&amp;dynamic=true"></iframe>
+                        </td>
+                    </tr>     
+                </table>
+            </a>
+            <BR>
+            <font size="1" color="#888888">--- SUT ---</font>
+            <BR>
+            <font size="1" color="#888888">Suranaree University of Technology</font>
+        </div> 
+        <hr width=" 800" color="#555555">
+
+    </body> 
+</html>
+ 
